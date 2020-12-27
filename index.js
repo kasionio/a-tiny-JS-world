@@ -53,7 +53,7 @@ const dog = {
    saying: cat.saying
  };
 
- const tinyWorld = [dog, cat, man, woman, catWoman];
+ const tinyWorldInhabits = [dog, cat, man, woman, catWoman];
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
@@ -74,5 +74,6 @@ const dog = {
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
 
- tinyWorld.forEach(item => print(Object.values(item)));
+const message = (obj) => `species: ${obj.species}; name: ${obj.name}; gender: ${obj.gender}; legs: ${obj.legs}; hands: ${obj.hands}; saying: ${obj.saying}.` 
+tinyWorldInhabits.forEach(inhabit => print(message(inhabit)));
 
