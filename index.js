@@ -1,13 +1,59 @@
 /* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
    Complete the below for code reviewers' convenience:
 
-   Code repository: _put repo URL here_
-   Web app: _put project's github pages URL here_
+   Code repository: https://github.com/kasionio/pre-oop
+   Web app: https://kasionio.github.io/pre-oop
    */
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
 
+const dog = {
+   species: 'dog',
+   name: 'Toby',
+   gender: 'male',
+   legs: 4,
+   hands: 0,
+   saying: 'woof-woof!'
+ };
+
+ const cat = {
+   species: 'cat',
+   name: 'Bobby',
+   gender: 'male',
+   legs: 4,
+   hands: 0,
+   saying: 'meow!'
+ };
+
+ const man = {
+   species: 'human',
+   name: 'Arnold',
+   gender: 'male',
+   legs: 2,
+   hands: 2,
+   saying: 'Hasta la vista, baby!'
+ };
+
+ const woman = {
+   species: 'human',
+   name: 'Kate',
+   gender: 'female',
+   legs: 2,
+   hands: 2,
+   saying: 'Merry Christmas!'
+ };
+
+ const catWoman = {
+   species: 'catWoman',
+   name: 'Betty',
+   gender: 'female',
+   legs: 2,
+   hands: 2,
+   saying: cat.saying
+ };
+
+ const tinyWorld = [dog, cat, man, woman, catWoman];
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
@@ -28,4 +74,5 @@
    print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
    */
 
+ tinyWorld.forEach(item => print(Object.values(item)));
 
