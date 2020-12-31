@@ -7,75 +7,64 @@
 
 // ======== OBJECTS DEFINITIONS ========
 // Define your objects here
-const dog = {
-  species: 'dog',
-  name: 'Toby',
-  gender: 'male',
-  legs: 4,
-  hands: 0,
-  saying: 'woof-woof!'
-};
+class Inhabitant {
+  constructor(species, name, gender, legs, hands, saying) {
+  this.species = species,
+  this.name = name,
+  this.gender = gender,
+  this.legs = legs,
+  this.hands = hands,
+  this.saying = saying
+  }
+}
 
-const cat = {
-  species: 'cat',
-  name: 'Bobby',
-  gender: 'male',
-  legs: 4,
-  hands: 0,
-  saying: 'meow!'
-};
+class Human extends Inhabitant {
+  constructor(name, gender, saying) {
+    super('human', name, gender, 2, 2, saying);
+    }
+}
 
-const man = {
-  species: 'human',
-  name: 'Arnold',
-  gender: 'male',
-  legs: 2,
-  hands: 2,
-  saying: 'Hasta la vista, baby!'
-};
+class Man extends Human {
+  constructor(name, saying) {
+    super(name, 'male', saying);
+    }
+}
 
-const woman = {
-  species: 'human',
-  name: 'Kate',
-  gender: 'female',
-  legs: 2,
-  hands: 2,
-  saying: 'Merry Christmas!'
-};
+class Woman extends Human {
+  constructor(name, saying) {
+    super(name, 'female', saying);
+    }
+}
 
-const catWoman = {
-  species: 'catWoman',
-  name: 'Betty',
-  gender: 'female',
-  legs: 2,
-  hands: 2,
-  saying: cat.saying
-};
+class Animal extends Inhabitant {
+  constructor(species, name, gender, saying) {
+    super(species, name, gender, 4, 0, saying);
+    }
+}
 
-const inhabits = [dog, cat, man, woman, catWoman];
-const properties = ['species', 'name', 'gender', 'legs', 'hands', 'saying'];
+class Dog extends Animal {
+  constructor(name, gender) {
+    super('dog', name, gender, 'woof-woof');
+    }
+}
 
-// ======== OUTPUT ========
-/* Use print(message) for output.
- Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
+class Cat extends Animal {
+  constructor(name, gender) {
+    super('cat', name, gender, 'meow');
+    }
+}
 
- Message can contain HTML markup. You may also tweak index.html and/or styles.css.
- However, please, REFRAIN from improving visuals at least until your code is reviewed
- so code reviewers might focus on a single file that is index.js.
- */
+class CatWoman extends Inhabitant {
+  constructor(name) {
+    super('catWoman', name, 'female', 2, 2, cat.saying);
+    }
+}
 
-/* Print examples:
- print('ABC');
- print('<strong>ABC</strong>');
- print('<strong>ABC</strong>', 'div');
+let man = new Man('Arnold', 'Hasta la vista, baby!');
+let woman = new Woman('Kate', 'Merry Christmas!');
+let cat = new Cat('Bobby', 'male');
+let dog = new Dog('Toby', 'male');
+let catWoman = new CatWoman('Betty');
 
- print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
- print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
- print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
- */
-
-const message = (arr, props) => arr.map(item => props.map(prop => item[prop])
-  .join('; '))
-  .join('\n');
-
-print(message(inhabits, properties));
+const inhabitants = [man, woman, catWoman, cat, dog]; 
+inhabitants.forEach(item => print(Object.values(item)));
